@@ -1,5 +1,6 @@
 import { useState } from "react";
 import WelcomeScreen from "./components/WelcomeScreen";
+import questions from "./data/questions";
 
 export default function App() {
   const [dotaznik, setDotaznik] = useState(false);
