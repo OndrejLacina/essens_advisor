@@ -1,4 +1,4 @@
-const questions = [
+const QUESTIONS = [
   {
     id: "scent",
     question: "Jaký typ vůně preferujete?",
@@ -16,4 +16,4 @@ const questions = [
   },
 ];
 
-export default questions;
+export default QUESTIONS;
