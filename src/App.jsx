@@ -4,13 +4,20 @@ import QUESTIONS from "./data/QUESTIONS";
 import QuestionStep from "./components/QuestionStep";
 
 export default function App() {
+  // Funkce a useState na spuštění dotazníku
   const [dotaznik, setDotaznik] = useState(false);
   const spustitDotaznik = () => {
     console.log("Kliknuto a tímto se spouští dotazník");
     setDotaznik(true);
   };
 
+  // Funkce a useState na posouvání otázek po odpovědi
   const [questionIndex, setQuestionIndex] = useState(0);
+
+  const posunoutDalsiOtazku = () => {
+    setQuestionIndex((index) => index + 1);
+  };
+
   const currentQuestion = QUESTIONS[questionIndex];
 
   return (
