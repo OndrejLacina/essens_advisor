@@ -49,7 +49,7 @@ export default function App() {
       {!dotaznik ? (
         <WelcomeScreen onStartDotazniku={spustitDotaznik} />
       ) : zobrazitVysledky ? (
-        <Results />
+        <Results odpovediProp={odpovedi} />
       ) : (
         <QuestionStep
           questionProp={currentQuestion}
