@@ -1,8 +1,11 @@
 // řeší jak vypdá jeden produkt
-export default function ProductCard() {
+export default function ProductCard({ perfume }) {
   return (
-    <div>
-      <p>Produkty jako svině :D </p>
-    </div>
+    <li>
+      <h4>{perfume.name}</h4>
+      <p>{perfume.description} </p>
+      <p>{perfume.price} Kč </p>
+      <img src={perfume.image} alt={perfume.name} />
+    </li>
   );
 }

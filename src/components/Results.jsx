@@ -1,5 +1,6 @@
 // řeší, které produkty se doporučí
 import perfumes from "../data/perfumes.json";
+import ProductCard from "./ProductCard";
 
 export default function Results({ odpovediProp }) {
   const ohodnoceneParfemy = perfumes.map((perfume) => {
@@ -23,12 +24,7 @@ export default function Results({ odpovediProp }) {
       <pre>{JSON.stringify(odpovediProp, null, 2)}</pre>
       <ul>
         {doporuceneParfemy.map((perfume) => (
-          <li key={perfume.name}>
-            <h4>{perfume.name}</h4>
-            <p>{perfume.description} </p>
-            <p>{perfume.price} Kč </p>
-            <img src={perfume.image} alt={perfume.name} />
-          </li>
+          <ProductCard key={perfume.name} perfume={perfume} />
         ))}
       </ul>
     </div>
