@@ -3,6 +3,7 @@ export default function QuestionStep({
   vybranaOdpoved,
   vybratOdpoved,
   dalsiProp,
+  jePosledniOtazka,
 }) {
   return (
     <div>
@@ -30,7 +31,7 @@ export default function QuestionStep({
         })}
       </ul>
       <button type="button" onClick={dalsiProp} disabled={!vybranaOdpoved}>
-        Další
+        {jePosledniOtazka ? "Vyhodnotit dotazník" : "Další"}
       </button>
     </div>
   );
