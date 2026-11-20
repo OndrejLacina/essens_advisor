@@ -1,6 +1,7 @@
 import { useState } from "react";
 import WelcomeScreen from "./components/WelcomeScreen";
 import questions from "./data/questions";
+import QuestionStep from "./components/QuestionStep";
 
 export default function App() {
   const [dotaznik, setDotaznik] = useState(false);
@@ -17,6 +18,7 @@ export default function App() {
       ) : (
         <WelcomeScreen onStartDotazniku={spustitDotaznik} />
       )}
+      <QuestionStep />
     </main>
   );
 }

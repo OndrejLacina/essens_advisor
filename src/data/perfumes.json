@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Blue",
+    "scent": "Svěží",
+    "occasion": ["Každý den", "Do práce"],
+    "intensity": "Střední",
+    "price": 1035,
+    "description": "Svěží vůně se střední intenzitou pro každý den.",
+    "image": "/images/blue.jpg"
+  },
+  {
+    "name": "Light blue",
+    "scent": "Svěží",
+    "occasion": ["Každý den"],
+    "intensity": "Jemnou",
+    "price": 355,
+    "description": "Svěží vůně s velmi jemnou intenzitou pro každý den.",
+    "image": "/images/light_blue.jpg"
+  },
+  {
+    "name": "Gold",
+    "scent": "Dřevitá",
+    "occasion": ["Do společnosti"],
+    "intensity": "Výraznou",
+    "price": 2035,
+    "description": "Elegantní vůně s výraznější intenzitou pro speciální události.",
+    "image": "/images/gold.jpg"
+  },
+  {
+    "name": "Pink",
+    "scent": "Sladká",
+    "occasion": ["Každý den", "Do práce", "Do společnosti"],
+    "intensity": "Střední",
+    "price": 2035,
+    "description": "Sladká vůně se střední intenzitou pro všechny příležitosti.",
+    "image": "/images/pink.jpg"
+  }
+]
