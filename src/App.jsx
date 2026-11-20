@@ -11,23 +11,38 @@ export default function App() {
     setDotaznik(true);
   };
 
-  // Funkce a useState na posouvání otázek po odpovědi
+  // Funkce a useState na jedntlivé otázky a odpovědi
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [odpovedi, setOdpovedi] = useState({});
+  // questionIndex
+  const currentQuestion = QUESTIONS[questionIndex];
+
+  // odpovedi
+  const vybranaOdpoved = odpovedi[currentQuestion.id];
+
+  const ulozitOdpoved = (option) => {
+    setOdpovedi((predchoziOdpovedi) => ({
+      ...predchoziOdpovedi,
+      [currentQuestion.id]: option,
+    }));
+  };
 
   const posunoutDalsiOtazku = () => {
     setQuestionIndex((index) => index + 1);
   };
 
-  const currentQuestion = QUESTIONS[questionIndex];
-
   return (
     <main className="min-h-screen bg-slate-100 flex items-center justify-center">
       {dotaznik ? (
-        <p>První otázka</p>
+        <QuestionStep
+          questionProp={currentQuestion}
+          vybranaOdpoved={vybranaOdpoved}
+          vybratOdpoved={ulozitOdpoved}
+          dalsiProp={posunoutDalsiOtazku}
+        />
       ) : (
         <WelcomeScreen onStartDotazniku={spustitDotaznik} />
       )}
-      <QuestionStep questionProp={currentQuestion} />
     </main>
   );
 }
