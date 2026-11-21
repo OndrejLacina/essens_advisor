@@ -33,6 +33,11 @@ export default function QuestionStep({
       <button type="button" onClick={dalsiProp} disabled={!vybranaOdpoved}>
         {jePosledniOtazka ? "Vyhodnotit dotazník" : "Další"}
       </button>
+
+      {/* Pokud ještě není vybraná odpověď, ukáže nápovědu */}
+      {!vybranaOdpoved && (
+        <p role="status">Pro pokračování vyberte jednu možnost</p>
+      )}
     </div>
   );
 }
