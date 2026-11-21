@@ -1,6 +1,7 @@
 // řeší, které produkty se doporučí
 import perfumes from "../data/perfumes.json";
 import ProductCard from "./ProductCard";
+import QUESTIONS from "../data/QUESTIONS";
 
 export default function Results({ odpovediProp }) {
   // tvrdý filter na gender
@@ -32,10 +33,14 @@ export default function Results({ odpovediProp }) {
 
   return (
     <div>
-      <h3>Výsledky</h3>
-      {/* pracovní */}
-      <pre>{JSON.stringify(odpovediProp, null, 2)}</pre>
+      <h3>Váš výběr</h3>
+      <ul>
+        {QUESTIONS.map((answer) => {
+          return <li key={answer.id}>{odpovediProp[answer.id]}</li>;
+        })}
+      </ul>
 
+      <h3>Výsledky</h3>
       <ul>
         {doporuceneParfemy.map((perfume) => (
           <ProductCard key={perfume.name} perfume={perfume} />
