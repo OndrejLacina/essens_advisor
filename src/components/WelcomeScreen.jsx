@@ -1,6 +1,3 @@
-import React from "react";
-import { useState } from "react";
-
 export default function WelcomeScreen({ onStartDotazniku }) {
   return (
     <div className="flex flex-col items-center">

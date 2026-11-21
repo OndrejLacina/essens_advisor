@@ -3,7 +3,13 @@ import perfumes from "../data/perfumes.json";
 import ProductCard from "./ProductCard";
 
 export default function Results({ odpovediProp }) {
-  const ohodnoceneParfemy = perfumes.map((perfume) => {
+  // tvrdý filter na gender
+  const parfemyPodleGenderu = perfumes.filter(
+    (perfume) => perfume.gender === odpovediProp.gender,
+  );
+
+  // BODOVÁNÍ - SCORING
+  const ohodnoceneParfemy = parfemyPodleGenderu.map((perfume) => {
     let score = 0; // nové skóre pro každý parfém
 
     if (perfume.scent === odpovediProp.scent) score += 1;
@@ -13,6 +19,7 @@ export default function Results({ odpovediProp }) {
     return { ...perfume, score };
   });
 
+  // Filtrování 3-2b + 1b záložní
   const silneShody = ohodnoceneParfemy
     .filter((perfume) => perfume.score >= 2) // filtruje silné shody 3 or 2body
     .sort((a, b) => b.score - a.score); // sort od nejvyššího
@@ -26,8 +33,9 @@ export default function Results({ odpovediProp }) {
   return (
     <div>
       <h3>Výsledky</h3>
-      <pre>{JSON.stringify(odpovediProp, null, 2)}</pre>
       {/* pracovní */}
+      <pre>{JSON.stringify(odpovediProp, null, 2)}</pre>
+
       <ul>
         {doporuceneParfemy.map((perfume) => (
           <ProductCard key={perfume.name} perfume={perfume} />

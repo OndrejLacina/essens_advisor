@@ -1,6 +1,7 @@
 [
   {
     "name": "Blue",
+    "gender": "Muž",
     "scent": "Svěží",
     "occasion": ["Každý den", "Do práce"],
     "intensity": "Střední",
@@ -10,6 +11,7 @@
   },
   {
     "name": "Light blue",
+    "gender": "Muž",
     "scent": "Svěží",
     "occasion": ["Každý den"],
     "intensity": "Jemnou",
@@ -19,6 +21,7 @@
   },
   {
     "name": "Gold",
+    "gender": "Muž",
     "scent": "Dřevitá",
     "occasion": ["Do společnosti"],
     "intensity": "Výraznou",
@@ -27,12 +30,53 @@
     "image": "/images/gold.jpg"
   },
   {
+    "name": "Black",
+    "gender": "Muž",
+    "scent": "Svěží",
+    "occasion": ["Do práce", "Do společnosti"],
+    "intensity": "Střední",
+    "price": 635,
+    "description": "Vyraznější svěží vůně se střední intenzitou  určená na významnější dny do práce i společnosti",
+    "image": "/images/black.jpg"
+  },
+  {
+    "name": "White",
+    "gender": "Žena",
+    "scent": "Sladká",
+    "occasion": ["Každý den", "Do práce"],
+    "intensity": "Jemnou",
+    "price": 635,
+    "description": "Jemná sladká vůně s velmi jemnou intenzitou pro každý den - i do práce",
+    "image": "/images/white.jpg"
+  },
+  {
     "name": "Pink",
+    "gender": "Žena",
     "scent": "Sladká",
     "occasion": ["Každý den", "Do práce", "Do společnosti"],
     "intensity": "Střední",
     "price": 2035,
     "description": "Sladká vůně se střední intenzitou pro všechny příležitosti.",
     "image": "/images/pink.jpg"
+  },
+  {
+    "name": "Rose",
+    "gender": "Žena",
+    "scent": "Svěží",
+    "occasion": ["Do práce", "Do společnosti"],
+    "intensity": "Střední",
+    "price": 635,
+    "description": "Svěží vůně s nádechem růže se střední intenzitou. Vhodná jak do práce, tak především do společnosti pro zanechání dojmu.",
+    "image": "/images/rose.jpg"
+  },
+  {
+    "name": "Santal",
+    "gender": "Žena",
+    "scent": "Dřevitá",
+    "occasion": ["Do společnosti"],
+    "intensity": "Výraznou",
+    "price": 600,
+    "description": "Silná vůně se santalovým dřevem. Vhodná na speciální události a do společnosti.",
+    "image": "/images/santal.png"
   }
 ]

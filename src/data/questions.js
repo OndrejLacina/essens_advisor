@@ -1,5 +1,10 @@
 const QUESTIONS = [
   {
+    id: "gender",
+    question: "Pro koho parfém vybíráte?",
+    options: ["Žena", "Muž"],
+  },
+  {
     id: "scent",
     question: "Jaký typ vůně preferujete?",
     options: ["Svěží", "Sladká", "Dřevitá"],
