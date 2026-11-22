@@ -1,23 +1,23 @@
 export default function QuestionStep({
-  questionProp,
+  otazka,
   vybranaOdpoved,
   vybratOdpoved,
-  dalsiProp,
+  dalsiBtn,
   jePosledniOtazka,
 }) {
   return (
     <div>
       <h2>Otázka</h2>
-      <p>{questionProp.question}</p>
+      <p>{otazka.question}</p>
 
       <ul>
-        {questionProp.options.map((option) => {
+        {otazka.options.map((option) => {
           return (
             <li key={option}>
               <label>
                 <input
                   type="radio"
-                  name={questionProp.id}
+                  name={otazka.id}
                   value={option}
                   checked={vybranaOdpoved === option}
                   onChange={() => {
@@ -30,7 +30,7 @@ export default function QuestionStep({
           );
         })}
       </ul>
-      <button type="button" onClick={dalsiProp} disabled={!vybranaOdpoved}>
+      <button type="button" onClick={dalsiBtn} disabled={!vybranaOdpoved}>
         {jePosledniOtazka ? "Vyhodnotit dotazník" : "Další"}
       </button>
 

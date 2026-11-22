@@ -3,19 +3,19 @@ import perfumes from "../data/perfumes.json";
 import ProductCard from "./ProductCard";
 import QUESTIONS from "../data/QUESTIONS";
 
-export default function Results({ odpovediProp }) {
+export default function Results({ odpovedi }) {
   // tvrdý filter na gender
   const parfemyPodleGenderu = perfumes.filter(
-    (perfume) => perfume.gender === odpovediProp.gender,
+    (perfume) => perfume.gender === odpovedi.gender,
   );
 
   // BODOVÁNÍ - SCORING
   const ohodnoceneParfemy = parfemyPodleGenderu.map((perfume) => {
     let score = 0; // nové skóre pro každý parfém
 
-    if (perfume.scent === odpovediProp.scent) score += 1;
-    if (perfume.occasion.includes(odpovediProp.occasion)) score += 1;
-    if (perfume.intensity === odpovediProp.intensity) score += 1;
+    if (perfume.scent === odpovedi.scent) score += 1;
+    if (perfume.occasion.includes(odpovedi.occasion)) score += 1;
+    if (perfume.intensity === odpovedi.intensity) score += 1;
 
     return { ...perfume, score };
   });
@@ -36,7 +36,7 @@ export default function Results({ odpovediProp }) {
       <h3>Váš výběr</h3>
       <ul>
         {QUESTIONS.map((answer) => {
-          return <li key={answer.id}>{odpovediProp[answer.id]}</li>;
+          return <li key={answer.id}>{odpovedi[answer.id]}</li>;
         })}
       </ul>
 

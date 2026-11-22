@@ -8,17 +8,15 @@ export default function App() {
   // useState
   const [dotaznik, setDotaznik] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [odpovedi, setOdpovedi] = useState({});
+  const [odpovedi, setOdpovedi] = useState({}); // ukládá odpovědi z onChange z QuestionStep.jsx
   const [zobrazitVysledky, setZobrazitVysledky] = useState(false);
 
   // Funkce na spuštění dotazníku
   const spustitDotaznik = () => {
-    console.log("Kliknuto a tímto se spouští dotazník");
     setDotaznik(true);
   };
 
-  // Funkce a useState na jedntlivé otázky a odpovědi
-  // currentQuestion
+  // Začátek indexu - resp. první otázky
   const currentQuestion = QUESTIONS[questionIndex];
 
   // odpovedi
@@ -49,13 +47,13 @@ export default function App() {
       {!dotaznik ? (
         <WelcomeScreen onStartDotazniku={spustitDotaznik} />
       ) : zobrazitVysledky ? (
-        <Results odpovediProp={odpovedi} />
+        <Results odpovedi={odpovedi} />
       ) : (
         <QuestionStep
-          questionProp={currentQuestion}
+          otazka={currentQuestion}
           vybranaOdpoved={vybranaOdpoved}
           vybratOdpoved={ulozitOdpoved}
-          dalsiProp={posunoutDalsiOtazku}
+          dalsiBtn={posunoutDalsiOtazku}
           jePosledniOtazka={jePosledniOtazka}
         />
       )}
