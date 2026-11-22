@@ -32,20 +32,35 @@ export default function Results({ answers }) {
         scoredPerfumes.filter((perfume) => perfume.score === 1).slice(0, 2);
 
   return (
-    <div>
-      <h3>Váš výběr</h3>
-      <ul>
-        {QUESTIONS.map((question) => {
-          return <li key={question.id}>{answers[question.id]}</li>;
-        })}
-      </ul>
+    <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+      <section className="mb-8">
+        <h3 className="text-sm font-semibold tracking-wide text-slate-600">
+          Váš výběr
+        </h3>
+        <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
+          {QUESTIONS.map((question) => {
+            return (
+              <li
+                key={question.id}
+                className="border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600"
+              >
+                {answers[question.id]}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
 
-      <h3>Výsledky</h3>
-      <ul>
-        {recommendedPerfumes.map((perfume) => (
-          <ProductCard key={perfume.name} perfume={perfume} />
-        ))}
-      </ul>
+      <section>
+        <h3 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
+          Výsledky
+        </h3>
+        <ul className="mt-5 flex list-none flex-col gap-4 p-0">
+          {recommendedPerfumes.map((perfume) => (
+            <ProductCard key={perfume.name} perfume={perfume} />
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }

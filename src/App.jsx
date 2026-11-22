@@ -40,7 +40,7 @@ export default function App() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-100 flex items-center justify-center">
+    <main className="min-h-screen bg-slate-100 flex items-center justify-center px-4 py-8 sm:px-6 sm-py12">
       {screen === "welcome" && (
         <WelcomeScreen onStartQuestionnaire={startQuestionnaire} />
       )}
