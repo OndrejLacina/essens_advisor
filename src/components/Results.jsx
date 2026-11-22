@@ -3,7 +3,7 @@ import perfumes from "../data/perfumes.json";
 import ProductCard from "./ProductCard";
 import QUESTIONS from "../data/QUESTIONS";
 
-export default function Results({ answers }) {
+export default function Results({ answers, onRestart }) {
   // tvrdý filter na gender
   const genderFilteredPerfumes = perfumes.filter(
     (perfume) => perfume.gender === answers.gender,
@@ -37,18 +37,27 @@ export default function Results({ answers }) {
         <h3 className="text-sm font-semibold tracking-wide text-slate-600">
           Váš výběr
         </h3>
-        <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
-          {QUESTIONS.map((question) => {
-            return (
+
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <ul className="flex list-none flex-wrap gap-2 p-0">
+            {QUESTIONS.map((question) => (
               <li
                 key={question.id}
                 className="border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600"
               >
                 {answers[question.id]}
               </li>
-            );
-          })}
-        </ul>
+            ))}
+          </ul>
+
+          <button
+            type="button"
+            onClick={onRestart}
+            className="ml-auto shrink-0 px-2 py-1 text-xs font-medium text-slate-500 transition hover:text-slate-800 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2"
+          >
+            Začít znovu
+          </button>
+        </div>
       </section>
 
       <section>

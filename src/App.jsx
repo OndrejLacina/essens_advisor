@@ -39,8 +39,15 @@ export default function App() {
     }
   };
 
+  // Reset tlačítko
+  const resetQuestionnaire = () => {
+    setAnswers({});
+    setQuestionIndex(0);
+    setScreen("welcome");
+  };
+
   return (
-    <main className="min-h-screen bg-slate-100 flex items-center justify-center px-4 py-8 sm:px-6 sm-py12">
+    <main className="min-h-screen bg-slate-100 flex items-center justify-center px-4 py-8 sm:px-6 sm:py-12">
       {screen === "welcome" && (
         <WelcomeScreen onStartQuestionnaire={startQuestionnaire} />
       )}
@@ -55,7 +62,9 @@ export default function App() {
         />
       )}
 
-      {screen === "results" && <Results answers={answers} />}
+      {screen === "results" && (
+        <Results answers={answers} onRestart={resetQuestionnaire} />
+      )}
     </main>
   );
 }
