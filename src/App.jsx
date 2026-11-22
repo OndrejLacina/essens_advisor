@@ -6,57 +6,56 @@ import Results from "./components/Results";
 
 export default function App() {
   // useState
-  const [dotaznik, setDotaznik] = useState(false);
+  const [screen, setScreen] = useState("welcome");
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [odpovedi, setOdpovedi] = useState({}); // ukládá odpovědi z onChange z QuestionStep.jsx
-  const [zobrazitVysledky, setZobrazitVysledky] = useState(false);
+  const [answers, setAnswers] = useState({}); // ukládá odpovědi z onChange z QuestionStep.jsx
 
   // Funkce na spuštění dotazníku
-  const spustitDotaznik = () => {
-    setDotaznik(true);
+  const startQuestionnaire = () => {
+    setScreen("questions");
   };
 
   // Začátek indexu - resp. první otázky
   const currentQuestion = QUESTIONS[questionIndex];
 
   // odpovedi
-  const vybranaOdpoved = odpovedi[currentQuestion.id];
+  const selectedAnswer = answers[currentQuestion.id];
 
-  const ulozitOdpoved = (option) => {
-    setOdpovedi((predchoziOdpovedi) => ({
-      ...predchoziOdpovedi,
+  const saveAnswer = (option) => {
+    setAnswers((previousAnswers) => ({
+      ...previousAnswers,
       [currentQuestion.id]: option,
     }));
   };
 
-  // vyhodnocení if poslední otázka + definice "jePosledniOtazka"
-  const jePosledniOtazka = questionIndex === QUESTIONS.length - 1;
+  // vyhodnocení if poslední otázka + definice "isLastQuestion"
+  const isLastQuestion = questionIndex === QUESTIONS.length - 1;
 
-  const posunoutDalsiOtazku = () => {
-    if (jePosledniOtazka) {
-      setZobrazitVysledky(true);
+  const goToNextQuestion = () => {
+    if (isLastQuestion) {
+      setScreen("results");
     } else {
       setQuestionIndex((index) => index + 1);
     }
   };
 
-  // if poslední, zobraz Výsledky - useState zobrazitVysledky
-
   return (
     <main className="min-h-screen bg-slate-100 flex items-center justify-center">
-      {!dotaznik ? (
-        <WelcomeScreen onStartDotazniku={spustitDotaznik} />
-      ) : zobrazitVysledky ? (
-        <Results odpovedi={odpovedi} />
-      ) : (
+      {screen === "welcome" && (
+        <WelcomeScreen onStartQuestionnaire={startQuestionnaire} />
+      )}
+
+      {screen === "questions" && (
         <QuestionStep
-          otazka={currentQuestion}
-          vybranaOdpoved={vybranaOdpoved}
-          vybratOdpoved={ulozitOdpoved}
-          dalsiBtn={posunoutDalsiOtazku}
-          jePosledniOtazka={jePosledniOtazka}
+          question={currentQuestion}
+          selectedAnswer={selectedAnswer}
+          onSelectAnswer={saveAnswer}
+          onNextQuestion={goToNextQuestion}
+          isLastQuestion={isLastQuestion}
         />
       )}
+
+      {screen === "results" && <Results answers={answers} />}
     </main>
   );
 }

@@ -1,4 +1,4 @@
-export default function WelcomeScreen({ onStartDotazniku }) {
+export default function WelcomeScreen({ onStartQuestionnaire }) {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-4xl font-bold text-blue-800">
@@ -9,7 +9,7 @@ export default function WelcomeScreen({ onStartDotazniku }) {
         parfému!
       </p>
       <button
-        onClick={onStartDotazniku}
+        onClick={onStartQuestionnaire}
         className="mt-8 rounded-full bg-slate-800 px-8 py-3 text-base font-medium text-white transition hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
       >
         Začít výběr

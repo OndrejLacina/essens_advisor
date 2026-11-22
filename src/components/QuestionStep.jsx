@@ -1,27 +1,27 @@
 export default function QuestionStep({
-  otazka,
-  vybranaOdpoved,
-  vybratOdpoved,
-  dalsiBtn,
-  jePosledniOtazka,
+  question,
+  selectedAnswer,
+  onSelectAnswer,
+  onNextQuestion,
+  isLastQuestion,
 }) {
   return (
     <div>
       <h2>Otázka</h2>
-      <p>{otazka.question}</p>
+      <p>{question.question}</p>
 
       <ul>
-        {otazka.options.map((option) => {
+        {question.options.map((option) => {
           return (
             <li key={option}>
               <label>
                 <input
                   type="radio"
-                  name={otazka.id}
+                  name={question.id}
                   value={option}
-                  checked={vybranaOdpoved === option}
+                  checked={selectedAnswer === option}
                   onChange={() => {
-                    vybratOdpoved(option);
+                    onSelectAnswer(option);
                   }}
                 />
                 {option}
@@ -30,12 +30,12 @@ export default function QuestionStep({
           );
         })}
       </ul>
-      <button type="button" onClick={dalsiBtn} disabled={!vybranaOdpoved}>
-        {jePosledniOtazka ? "Vyhodnotit dotazník" : "Další"}
+      <button type="button" onClick={onNextQuestion} disabled={!selectedAnswer}>
+        {isLastQuestion ? "Vyhodnotit dotazník" : "Další"}
       </button>
 
       {/* Pokud ještě není vybraná odpověď, ukáže nápovědu */}
-      {!vybranaOdpoved && (
+      {!selectedAnswer && (
         <p role="status">Pro pokračování vyberte jednu možnost</p>
       )}
     </div>
